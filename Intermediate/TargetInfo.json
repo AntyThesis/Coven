@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "Coven",
+			"Path": "..\\Source\\Coven.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "CovenEditor",
+			"Path": "..\\Source\\CovenEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

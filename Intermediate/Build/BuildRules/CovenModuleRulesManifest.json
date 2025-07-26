@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"D:\\Unreal Projects\\Coven\\Source\\Coven\\Coven.Build.cs",
+		"D:\\Unreal Projects\\Coven\\Source\\Coven.Target.cs",
+		"D:\\Unreal Projects\\Coven\\Source\\CovenEditor.Target.cs"
+	],
+	"EngineVersion": "5.5.3"
+}
