@@ -5,7 +5,13 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
-				"D:/Unreal Projects/Coven/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset"
+				"D:/Unreal Projects/Coven/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset",
+				"D:/Unreal Projects/Coven/Content/ThirdPerson/Blueprints/BP_ThirdPersonCharacter.uasset",
+				"D:/Unreal Projects/Coven/Content/ThirdPerson/Blueprints/BP_PlayerCoven.uasset",
+				"D:/Unreal Projects/Coven/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/3/P1/5TQ2NDYXHUA1KR830MYFWE.uasset",
+				"D:/Unreal Projects/Coven/Content/ThirdPerson/Input/Actions/IA_Pause.uasset",
+				"D:/Unreal Projects/Coven/Content/ThirdPerson/Input/IMC_Default.uasset",
+				"D:/Unreal Projects/Coven/Content/ThirdPerson/Blueprints/WBP_PauseScreen.uasset"
 			]
 		}
 	]
