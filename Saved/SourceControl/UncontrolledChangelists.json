@@ -6,12 +6,19 @@
 			"description": "Default Uncontrolled Changelist",
 			"files": [
 				"D:/Unreal Projects/Coven/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset",
-				"D:/Unreal Projects/Coven/Content/ThirdPerson/Blueprints/BP_ThirdPersonCharacter.uasset",
 				"D:/Unreal Projects/Coven/Content/ThirdPerson/Blueprints/BP_PlayerCoven.uasset",
 				"D:/Unreal Projects/Coven/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/3/P1/5TQ2NDYXHUA1KR830MYFWE.uasset",
 				"D:/Unreal Projects/Coven/Content/ThirdPerson/Input/Actions/IA_Pause.uasset",
 				"D:/Unreal Projects/Coven/Content/ThirdPerson/Input/IMC_Default.uasset",
-				"D:/Unreal Projects/Coven/Content/ThirdPerson/Blueprints/WBP_PauseScreen.uasset"
+				"D:/Unreal Projects/Coven/Content/ThirdPerson/Blueprints/UI/WBP_PauseScreen.uasset",
+				"D:/Unreal Projects/Coven/Content/ThirdPerson/Blueprints/Items/BP_ItemBase.uasset",
+				"D:/Unreal Projects/Coven/Content/ThirdPerson/Blueprints/Player/BP_ThirdPersonCharacter.uasset",
+				"D:/Unreal Projects/Coven/Content/ThirdPerson/Blueprints/Coven/BP_PlayerCoven.uasset",
+				"D:/Unreal Projects/Coven/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/B/1V/76TNXLIKD7JRTIAW12SJA0.uasset",
+				"D:/Unreal Projects/Coven/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/4/01/6X28AWKTLSPOGI0TVPYW0X.uasset",
+				"D:/Unreal Projects/Coven/Content/ThirdPerson/Blueprints/BP_ThirdPersonCharacter.uasset",
+				"D:/Unreal Projects/Coven/Content/ThirdPerson/Blueprints/WBP_PauseScreen.uasset",
+				"D:/Unreal Projects/Coven/Content/ThirdPerson/Blueprints/BP_ItemBase.uasset"
 			]
 		}
 	]

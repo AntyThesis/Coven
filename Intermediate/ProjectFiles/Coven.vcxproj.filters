@@ -57,6 +57,12 @@
     <ClCompile Include="..\..\Source\Coven\CovenGameMode.h">
       <Filter>Source\Coven</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Coven\ItemBase.cpp">
+      <Filter>Source\Coven</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Coven\ItemBase.h">
+      <Filter>Source\Coven</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Coven\PlayerCoven.cpp">
       <Filter>Source\Coven</Filter>
     </ClCompile>

@@ -17,13 +17,13 @@ void EmptyLinkFunctionForGeneratedCodeCoven_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0xDAE8CC9E,
-				0x74EF82C1,
+				0xAF85AA13,
+				0x3EC3F15C,
 				METADATA_PARAMS(0, nullptr)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_Coven.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_Coven.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_Coven(Z_Construct_UPackage__Script_Coven, TEXT("/Script/Coven"), Z_Registration_Info_UPackage__Script_Coven, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xDAE8CC9E, 0x74EF82C1));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_Coven(Z_Construct_UPackage__Script_Coven, TEXT("/Script/Coven"), Z_Registration_Info_UPackage__Script_Coven, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xAF85AA13, 0x3EC3F15C));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
