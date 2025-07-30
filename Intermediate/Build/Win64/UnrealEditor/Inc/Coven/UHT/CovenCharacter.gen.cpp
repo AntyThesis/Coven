@@ -12,6 +12,7 @@ void EmptyLinkFunctionForGeneratedCodeCovenCharacter() {}
 // Begin Cross Module References
 COVEN_API UClass* Z_Construct_UClass_ACovenCharacter();
 COVEN_API UClass* Z_Construct_UClass_ACovenCharacter_NoRegister();
+COVEN_API UClass* Z_Construct_UClass_UInventoryComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
@@ -105,6 +106,11 @@ struct Z_Construct_UClass_ACovenCharacter_Statics
 		{ "ToolTip", "Look Input Action" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_InventoryComponent_MetaData[] = {
+		{ "Category", "Player Components" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "CovenCharacter.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CameraBoom;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_FollowCamera;
@@ -112,6 +118,7 @@ struct Z_Construct_UClass_ACovenCharacter_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_JumpAction;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_MoveAction;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_LookAction;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_InventoryComponent;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -125,6 +132,7 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACovenCharacte
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACovenCharacter_Statics::NewProp_JumpAction = { "JumpAction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACovenCharacter, JumpAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_JumpAction_MetaData), NewProp_JumpAction_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACovenCharacter_Statics::NewProp_MoveAction = { "MoveAction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACovenCharacter, MoveAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MoveAction_MetaData), NewProp_MoveAction_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACovenCharacter_Statics::NewProp_LookAction = { "LookAction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACovenCharacter, LookAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LookAction_MetaData), NewProp_LookAction_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACovenCharacter_Statics::NewProp_InventoryComponent = { "InventoryComponent", nullptr, (EPropertyFlags)0x00100000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACovenCharacter, InventoryComponent), Z_Construct_UClass_UInventoryComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InventoryComponent_MetaData), NewProp_InventoryComponent_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACovenCharacter_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACovenCharacter_Statics::NewProp_CameraBoom,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACovenCharacter_Statics::NewProp_FollowCamera,
@@ -132,6 +140,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACovenCha
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACovenCharacter_Statics::NewProp_JumpAction,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACovenCharacter_Statics::NewProp_MoveAction,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACovenCharacter_Statics::NewProp_LookAction,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACovenCharacter_Statics::NewProp_InventoryComponent,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACovenCharacter_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ACovenCharacter_Statics::DependentSingletons[])() = {
@@ -174,10 +183,10 @@ ACovenCharacter::~ACovenCharacter() {}
 struct Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ACovenCharacter, ACovenCharacter::StaticClass, TEXT("ACovenCharacter"), &Z_Registration_Info_UClass_ACovenCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACovenCharacter), 2340657457U) },
+		{ Z_Construct_UClass_ACovenCharacter, ACovenCharacter::StaticClass, TEXT("ACovenCharacter"), &Z_Registration_Info_UClass_ACovenCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACovenCharacter), 398905214U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_3535195762(TEXT("/Script/Coven"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_3732793122(TEXT("/Script/Coven"),
 	Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

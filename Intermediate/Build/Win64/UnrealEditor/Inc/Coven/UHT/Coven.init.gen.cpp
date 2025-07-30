@@ -7,23 +7,29 @@
 #include "UObject/GeneratedCppIncludes.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeCoven_init() {}
+	COVEN_API UFunction* Z_Construct_UDelegateFunction_Coven_OnItemAdded__DelegateSignature();
+	COVEN_API UFunction* Z_Construct_UDelegateFunction_Coven_OnItemRemoved__DelegateSignature();
 	static FPackageRegistrationInfo Z_Registration_Info_UPackage__Script_Coven;
 	FORCENOINLINE UPackage* Z_Construct_UPackage__Script_Coven()
 	{
 		if (!Z_Registration_Info_UPackage__Script_Coven.OuterSingleton)
 		{
+			static UObject* (*const SingletonFuncArray[])() = {
+				(UObject* (*)())Z_Construct_UDelegateFunction_Coven_OnItemAdded__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_Coven_OnItemRemoved__DelegateSignature,
+			};
 			static const UECodeGen_Private::FPackageParams PackageParams = {
 				"/Script/Coven",
-				nullptr,
-				0,
+				SingletonFuncArray,
+				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0xAF85AA13,
-				0x3EC3F15C,
+				0xB0F5161C,
+				0x1EE25309,
 				METADATA_PARAMS(0, nullptr)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_Coven.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_Coven.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_Coven(Z_Construct_UPackage__Script_Coven, TEXT("/Script/Coven"), Z_Registration_Info_UPackage__Script_Coven, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xAF85AA13, 0x3EC3F15C));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_Coven(Z_Construct_UPackage__Script_Coven, TEXT("/Script/Coven"), Z_Registration_Info_UPackage__Script_Coven, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xB0F5161C, 0x1EE25309));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

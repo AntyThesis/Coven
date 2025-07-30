@@ -9,10 +9,15 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class ACovenCharacter;
 #ifdef COVEN_ItemBase_generated_h
 #error "ItemBase.generated.h already included, missing '#pragma once' in ItemBase.h"
 #endif
 #define COVEN_ItemBase_generated_h
+
+#define FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execInteract);
+
 
 #define FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_17_INCLASS_NO_PURE_DECLS \
 private: \
@@ -39,6 +44,7 @@ public: \
 #define FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
+	FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_17_INCLASS_NO_PURE_DECLS \
 	FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_17_ENHANCED_CONSTRUCTORS \
 private: \

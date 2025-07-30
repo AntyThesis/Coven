@@ -2,6 +2,8 @@
 
 
 #include "ItemBase.h"
+#include "InventoryComponent.h"
+#include "CovenCharacter.h"
 
 
 // Sets default values
@@ -34,7 +36,7 @@ void AItemBase::Interact(ACovenCharacter* InteractingCharacter) {
 	if (InteractingCharacter) {
 		ItemMesh->SetVisibility(false); // Hide the item mesh when interacted with
 		ItemMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision); // Disable collision for the item mesh
-
+		InteractingCharacter->FindComponentByClass<UInventoryComponent>()->AddItemToInventory(this); // Add the item to the character's inventory
 	}
 }
 

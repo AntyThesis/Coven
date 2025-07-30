@@ -11,6 +11,7 @@ class USpringArmComponent;
 class UCameraComponent;
 class UInputMappingContext;
 class UInputAction;
+class UInventoryComponent;
 struct FInputActionValue;
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
@@ -46,7 +47,9 @@ class ACovenCharacter : public ACharacter
 
 public:
 	ACovenCharacter();
-	
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player Components")
+	UInventoryComponent* InventoryComponent;
 
 protected:
 

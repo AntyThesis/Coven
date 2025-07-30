@@ -34,6 +34,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION(BlueprintCallable)
 	virtual void Interact(ACovenCharacter* InteractingCharacter); // Function to handle interaction with the item
 
 };
