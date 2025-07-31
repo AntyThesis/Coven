@@ -25,6 +25,8 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item Properties")
 	UStaticMeshComponent* ItemMesh; // Mesh for the item
+
+	
 		
 protected:
 	// Called when the game starts or when spawned

@@ -11,6 +11,8 @@
 #include "EnhancedInputSubsystems.h"
 #include "InventoryComponent.h"
 #include "InputActionValue.h"
+#include "Kismet/KismetSystemLibrary.h"
+#include "ItemBase.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
@@ -84,6 +86,9 @@ void ACovenCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComp
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &ACharacter::Jump);
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
 
+		// Player Interaction
+		EnhancedInputComponent->BindAction(PlayerInteractionAction, ETriggerEvent::Triggered, this, &ACovenCharacter::PlayerInteraction);
+
 		// Moving
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &ACovenCharacter::Move);
 
@@ -129,5 +134,25 @@ void ACovenCharacter::Look(const FInputActionValue& Value)
 		// add yaw and pitch input to controller
 		AddControllerYawInput(LookAxisVector.X);
 		AddControllerPitchInput(LookAxisVector.Y);
+	}
+}
+
+
+void ACovenCharacter::PlayerInteraction() {
+
+	TArray<AActor*> OverlappingActors; // Array to hold actors that overlap with the sphere
+	TArray<TEnumAsByte<EObjectTypeQuery>> ObjectTypes; // Define the object types to check for overlaps
+	ObjectTypes.Add(UEngineTypes::ConvertToObjectType(ECollisionChannel::ECC_WorldDynamic)); // Add dynamic objects to the overlap check
+	const TArray<AActor*> ActorsToIgnore; // No actors to ignore in this case
+
+	UKismetSystemLibrary::SphereOverlapActors(GetWorld(), GetActorLocation(), 200.f, ObjectTypes, AItemBase::StaticClass(), ActorsToIgnore, OverlappingActors); // Perform a sphere overlap check to find nearby actors of type AItemBase
+
+	DrawDebugSphere(GetWorld(), GetActorLocation(), 200.f, 12, FColor::Red, false, 1.f); // Draw a debug sphere to visualize the overlap area
+
+	if (OverlappingActors.Num() > 0 && OverlappingActors[0] != nullptr) { // Check if there are any overlapping actors found
+
+		if (AItemBase* Item = Cast<AItemBase>(OverlappingActors[0])) { // Check if the first overlapping actor is of type AItemBase
+			Item->Interact(this); // Call the Interact function on the item, passing this character as the interactor
+		}
 	}
 }

@@ -14,6 +14,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define COVEN_CovenCharacter_generated_h
 
+#define FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execPlayerInteraction);
+
+
 #define FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_22_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesACovenCharacter(); \
@@ -39,6 +43,7 @@ public: \
 #define FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_22_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
+	FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_22_INCLASS_NO_PURE_DECLS \
 	FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_22_ENHANCED_CONSTRUCTORS \
 private: \

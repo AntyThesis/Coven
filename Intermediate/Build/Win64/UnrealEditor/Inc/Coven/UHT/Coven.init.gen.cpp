@@ -23,7 +23,7 @@ void EmptyLinkFunctionForGeneratedCodeCoven_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0xB0F5161C,
+				0x2BD75ADE,
 				0x1EE25309,
 				METADATA_PARAMS(0, nullptr)
 			};
@@ -31,5 +31,5 @@ void EmptyLinkFunctionForGeneratedCodeCoven_init() {}
 		}
 		return Z_Registration_Info_UPackage__Script_Coven.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_Coven(Z_Construct_UPackage__Script_Coven, TEXT("/Script/Coven"), Z_Registration_Info_UPackage__Script_Coven, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xB0F5161C, 0x1EE25309));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_Coven(Z_Construct_UPackage__Script_Coven, TEXT("/Script/Coven"), Z_Registration_Info_UPackage__Script_Coven, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x2BD75ADE, 0x1EE25309));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

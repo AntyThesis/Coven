@@ -4,6 +4,7 @@
 #include "ItemBase.h"
 #include "InventoryComponent.h"
 #include "CovenCharacter.h"
+#include "Components/BoxComponent.h"
 
 
 // Sets default values
@@ -36,6 +37,11 @@ void AItemBase::Interact(ACovenCharacter* InteractingCharacter) {
 	if (InteractingCharacter) {
 		ItemMesh->SetVisibility(false); // Hide the item mesh when interacted with
 		ItemMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision); // Disable collision for the item mesh
+		ItemMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision); // Disable collision for the item mesh
+
+		UBoxComponent* CollisionBox = FindComponentByClass<UBoxComponent>(); // Find the collision box component
+		CollisionBox->SetCollisionEnabled(ECollisionEnabled::NoCollision); // Disable collision for the collision box
+
 		InteractingCharacter->FindComponentByClass<UInventoryComponent>()->AddItemToInventory(this); // Add the item to the character's inventory
 	}
 }
