@@ -13,11 +13,12 @@ class UInputMappingContext;
 class UInputAction;
 class UInventoryComponent;
 struct FInputActionValue;
+class APlayerCoven;
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
 
 UCLASS(config=Game)
-class ACovenCharacter : public ACharacter
+class COVEN_API ACovenCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
@@ -54,6 +55,8 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player Components")
 	UInventoryComponent* InventoryComponent;
 
+
+
 protected:
 
 	/** Called for movement input */
@@ -70,6 +73,10 @@ protected:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 public:
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player Coven")
+	APlayerCoven* PlayerCoven;
+
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/
@@ -77,5 +84,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	virtual void PlayerInteraction();
+
+	virtual void BeginPlay() override;
 };
 

@@ -16,6 +16,7 @@ class ACovenCharacter;
 #define COVEN_ItemBase_generated_h
 
 #define FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execUseItem); \
 	DECLARE_FUNCTION(execInteract);
 
 

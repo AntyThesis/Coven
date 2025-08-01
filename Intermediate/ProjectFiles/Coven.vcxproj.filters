@@ -75,5 +75,11 @@
     <ClCompile Include="..\..\Source\Coven\PlayerCoven.h">
       <Filter>Source\Coven</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Coven\RitualTea.cpp">
+      <Filter>Source\Coven</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Coven\RitualTea.h">
+      <Filter>Source\Coven</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

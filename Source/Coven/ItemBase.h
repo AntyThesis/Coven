@@ -24,6 +24,9 @@ public:
 	UTexture2D* ItemIcon; // Icon for the item
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item Properties")
+	FString ItemName; // Name of the item
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item Properties")
 	UStaticMeshComponent* ItemMesh; // Mesh for the item
 
 	
@@ -38,5 +41,8 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	virtual void Interact(ACovenCharacter* InteractingCharacter); // Function to handle interaction with the item
+
+	UFUNCTION(BlueprintCallable)
+	virtual void UseItem(ACovenCharacter* UsingCharacter); // Function to use the item
 
 };

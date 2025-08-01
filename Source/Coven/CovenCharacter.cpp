@@ -13,6 +13,9 @@
 #include "InputActionValue.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "ItemBase.h"
+#include "Kismet/GameplayStatics.h"
+#include "PlayerCoven.h"
+#include "RitualTea.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
@@ -154,5 +157,18 @@ void ACovenCharacter::PlayerInteraction() {
 		if (AItemBase* Item = Cast<AItemBase>(OverlappingActors[0])) { // Check if the first overlapping actor is of type AItemBase
 			Item->Interact(this); // Call the Interact function on the item, passing this character as the interactor
 		}
+	}
+}
+
+void ACovenCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+	
+	PlayerCoven = Cast<APlayerCoven>(UGameplayStatics::GetActorOfClass(GetWorld(), APlayerCoven::StaticClass())); // Set the Player Coven
+	
+	if (PlayerCoven != nullptr) {
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Player Coven Set.")); // Print a debug for if the coven is set successfully
+	} else {
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Player Coven NOT Set.")); // Print a debug for if the coven is not set successfully
 	}
 }

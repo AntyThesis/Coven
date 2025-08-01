@@ -13,6 +13,8 @@ AItemBase::AItemBase()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	ItemName = "BaseItem"; // Initialize the item name to a default value
+
 	ItemMesh = CreateDefaultSubobject<UStaticMeshComponent>((TEXT("ItemMesh"))); // Create the static mesh component for the item
 	
 
@@ -37,12 +39,21 @@ void AItemBase::Interact(ACovenCharacter* InteractingCharacter) {
 	if (InteractingCharacter) {
 		ItemMesh->SetVisibility(false); // Hide the item mesh when interacted with
 		ItemMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision); // Disable collision for the item mesh
-		ItemMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision); // Disable collision for the item mesh
-
+	
 		UBoxComponent* CollisionBox = FindComponentByClass<UBoxComponent>(); // Find the collision box component
-		CollisionBox->SetCollisionEnabled(ECollisionEnabled::NoCollision); // Disable collision for the collision box
+		if (CollisionBox) {
+			CollisionBox->SetCollisionEnabled(ECollisionEnabled::NoCollision); // Disable collision for the collision box
+		}
+		
 
 		InteractingCharacter->FindComponentByClass<UInventoryComponent>()->AddItemToInventory(this); // Add the item to the character's inventory
 	}
 }
 
+void AItemBase::UseItem(ACovenCharacter* UsingCharacter) {
+	if (UsingCharacter == nullptr) {
+		return; // If the character is null, do nothing
+	}
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Using item: %s"), *ItemName)); // Display a message when the item is used
+	UsingCharacter->InventoryComponent->RemoveItemFromInventory(this); // Remove the item from the character's inventory
+}

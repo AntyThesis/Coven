@@ -61,12 +61,61 @@ DEFINE_FUNCTION(AItemBase::execInteract)
 }
 // End Class AItemBase Function Interact
 
+// Begin Class AItemBase Function UseItem
+struct Z_Construct_UFunction_AItemBase_UseItem_Statics
+{
+	struct ItemBase_eventUseItem_Parms
+	{
+		ACovenCharacter* UsingCharacter;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Function to handle interaction with the item\n" },
+#endif
+		{ "ModuleRelativePath", "ItemBase.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Function to handle interaction with the item" },
+#endif
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_UsingCharacter;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AItemBase_UseItem_Statics::NewProp_UsingCharacter = { "UsingCharacter", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ItemBase_eventUseItem_Parms, UsingCharacter), Z_Construct_UClass_ACovenCharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AItemBase_UseItem_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AItemBase_UseItem_Statics::NewProp_UsingCharacter,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AItemBase_UseItem_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AItemBase_UseItem_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AItemBase, nullptr, "UseItem", nullptr, nullptr, Z_Construct_UFunction_AItemBase_UseItem_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AItemBase_UseItem_Statics::PropPointers), sizeof(Z_Construct_UFunction_AItemBase_UseItem_Statics::ItemBase_eventUseItem_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AItemBase_UseItem_Statics::Function_MetaDataParams), Z_Construct_UFunction_AItemBase_UseItem_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_AItemBase_UseItem_Statics::ItemBase_eventUseItem_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AItemBase_UseItem()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AItemBase_UseItem_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AItemBase::execUseItem)
+{
+	P_GET_OBJECT(ACovenCharacter,Z_Param_UsingCharacter);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->UseItem(Z_Param_UsingCharacter);
+	P_NATIVE_END;
+}
+// End Class AItemBase Function UseItem
+
 // Begin Class AItemBase
 void AItemBase::StaticRegisterNativesAItemBase()
 {
 	UClass* Class = AItemBase::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "Interact", &AItemBase::execInteract },
+		{ "UseItem", &AItemBase::execUseItem },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -92,24 +141,36 @@ struct Z_Construct_UClass_AItemBase_Statics
 		{ "Category", "Item Properties" },
 		{ "ModuleRelativePath", "ItemBase.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ItemMesh_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ItemName_MetaData[] = {
 		{ "Category", "Item Properties" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// Icon for the item\n" },
 #endif
-		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "ItemBase.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Icon for the item" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ItemMesh_MetaData[] = {
+		{ "Category", "Item Properties" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Name of the item\n" },
+#endif
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "ItemBase.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Name of the item" },
+#endif
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ItemIcon;
+	static const UECodeGen_Private::FStrPropertyParams NewProp_ItemName;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ItemMesh;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_AItemBase_Interact, "Interact" }, // 2701342863
+		{ &Z_Construct_UFunction_AItemBase_UseItem, "UseItem" }, // 1800589613
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -118,9 +179,11 @@ struct Z_Construct_UClass_AItemBase_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AItemBase_Statics::NewProp_ItemIcon = { "ItemIcon", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AItemBase, ItemIcon), Z_Construct_UClass_UTexture2D_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemIcon_MetaData), NewProp_ItemIcon_MetaData) };
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_AItemBase_Statics::NewProp_ItemName = { "ItemName", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AItemBase, ItemName), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemName_MetaData), NewProp_ItemName_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AItemBase_Statics::NewProp_ItemMesh = { "ItemMesh", nullptr, (EPropertyFlags)0x001000000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AItemBase, ItemMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemMesh_MetaData), NewProp_ItemMesh_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AItemBase_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItemBase_Statics::NewProp_ItemIcon,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItemBase_Statics::NewProp_ItemName,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItemBase_Statics::NewProp_ItemMesh,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AItemBase_Statics::PropPointers) < 2048);
@@ -164,10 +227,10 @@ AItemBase::~AItemBase() {}
 struct Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AItemBase, AItemBase::StaticClass, TEXT("AItemBase"), &Z_Registration_Info_UClass_AItemBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AItemBase), 3554259133U) },
+		{ Z_Construct_UClass_AItemBase, AItemBase::StaticClass, TEXT("AItemBase"), &Z_Registration_Info_UClass_AItemBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AItemBase), 4233147738U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_2594258375(TEXT("/Script/Coven"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_3797164316(TEXT("/Script/Coven"),
 	Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
