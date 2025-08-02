@@ -69,6 +69,15 @@
     <ClCompile Include="..\..\Source\Coven\ItemBase.h">
       <Filter>Source\Coven</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Coven\NPCBase.cpp">
+      <Filter>Source\Coven</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Coven\NPCBase.h">
+      <Filter>Source\Coven</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Coven\NPCEnum.h">
+      <Filter>Source\Coven</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Coven\PlayerCoven.cpp">
       <Filter>Source\Coven</Filter>
     </ClCompile>

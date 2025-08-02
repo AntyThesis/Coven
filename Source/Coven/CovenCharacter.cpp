@@ -148,7 +148,7 @@ void ACovenCharacter::PlayerInteraction() {
 	ObjectTypes.Add(UEngineTypes::ConvertToObjectType(ECollisionChannel::ECC_WorldDynamic)); // Add dynamic objects to the overlap check
 	const TArray<AActor*> ActorsToIgnore; // No actors to ignore in this case
 
-	UKismetSystemLibrary::SphereOverlapActors(GetWorld(), GetActorLocation(), 200.f, ObjectTypes, AItemBase::StaticClass(), ActorsToIgnore, OverlappingActors); // Perform a sphere overlap check to find nearby actors of type AItemBase
+	UKismetSystemLibrary::SphereOverlapActors(GetWorld(), GetActorLocation(), 200.f, ObjectTypes, nullptr, ActorsToIgnore, OverlappingActors); // Perform a sphere overlap check to find nearby actors of type AItemBase
 
 	DrawDebugSphere(GetWorld(), GetActorLocation(), 200.f, 12, FColor::Red, false, 1.f); // Draw a debug sphere to visualize the overlap area
 
@@ -157,6 +157,8 @@ void ACovenCharacter::PlayerInteraction() {
 		if (AItemBase* Item = Cast<AItemBase>(OverlappingActors[0])) { // Check if the first overlapping actor is of type AItemBase
 			Item->Interact(this); // Call the Interact function on the item, passing this character as the interactor
 		}
+
+		
 	}
 }
 

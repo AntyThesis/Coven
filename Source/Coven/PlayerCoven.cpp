@@ -4,6 +4,7 @@
 #include "PlayerCoven.h"
 #include "Kismet/GameplayStatics.h"
 #include "CovenCharacter.h"
+#include "NPCBase.h"
 
 // Sets default values
 APlayerCoven::APlayerCoven()
@@ -16,6 +17,7 @@ APlayerCoven::APlayerCoven()
 	ExpThreshold = 1000.f;
 	CurrentExp = 0.f;
 	ExpNeeded = ExpThreshold - CurrentExp;
+	NumberOfWitches = 1;
 }
 
 // Called when the game starts or when spawned
@@ -52,5 +54,21 @@ void APlayerCoven::EarnExp(float ExpAmount)
 	ExpNeeded = ExpThreshold - CurrentExp; // Update the exp needed for the next level
 	if (CurrentExp >= ExpThreshold) {
 		IncreaseLevel(); // Level up if current exp exceeds threshold
+	}
+}
+
+void APlayerCoven::AddWitch(ANPCBase* WitchToAdd) {
+	if (WitchToAdd) {
+		CovenWitches.Add(WitchToAdd); // Add the witch to the Coven's list
+		NumberOfWitches++; // Increment the number of witches in the Coven
+		OnWitchAdded.Broadcast(); // Broadcast the event that a witch has been added
+	}
+}
+
+void APlayerCoven::RemoveWitch(ANPCBase* WitchToRemove) {
+	if (WitchToRemove && CovenWitches.Contains(WitchToRemove)) {
+		CovenWitches.Remove(WitchToRemove); // Remove the witch from the Coven's list
+		NumberOfWitches--; // Decrement the number of witches in the Coven
+		OnWitchRemoved.Broadcast(); // Broadcast the event that a witch has been removed
 	}
 }
