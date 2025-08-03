@@ -17,7 +17,7 @@ void ARitualTea::UseItem(ACovenCharacter* UsingCharacter) {
 	Super::UseItem(UsingCharacter);
 
 	if (UsingCharacter != nullptr && UsingCharacter->PlayerCoven != nullptr) {
-		UsingCharacter->PlayerCoven->EarnExp(100.f);
+		UsingCharacter->PlayerCoven->EarnExp(500.f);
 		
 	}
 

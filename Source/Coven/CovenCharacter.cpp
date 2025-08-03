@@ -16,6 +16,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "PlayerCoven.h"
 #include "RitualTea.h"
+#include "NPCBase.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
@@ -158,6 +159,9 @@ void ACovenCharacter::PlayerInteraction() {
 			Item->Interact(this); // Call the Interact function on the item, passing this character as the interactor
 		}
 
+		else if (ANPCBase* NPC = Cast<ANPCBase>(OverlappingActors[0])) {
+			NPC->Interact(this); // Call the Interact function on the NPC, passing this character as the interactor
+		}
 		
 	}
 }
