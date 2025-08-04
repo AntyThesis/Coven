@@ -55,6 +55,8 @@ ACovenCharacter::ACovenCharacter()
 
 	InventoryComponent = CreateDefaultSubobject<UInventoryComponent>(TEXT("InventoryComponent")); // Create an inventory component for the character
 
+	InfluencePoints = 0; // Initialize influence points to zero
+
 	// Create a follow camera
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
@@ -177,4 +179,16 @@ void ACovenCharacter::BeginPlay()
 	} else {
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Player Coven NOT Set.")); // Print a debug for if the coven is not set successfully
 	}
+}
+
+
+
+void ACovenCharacter::GainInfluencePoints(int Points) {
+	InfluencePoints += Points; // Increase the influence points by the specified amount
+}
+
+
+void ACovenCharacter::SpendInfluencePoints(int Points) {
+	InfluencePoints -= Points; // Decrease the influence points by the specified amount
+	InfluencePoints = FMath::Clamp(InfluencePoints, 0, 1000000000); // Ensure influence points do not go below zero
 }

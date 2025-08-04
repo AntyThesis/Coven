@@ -151,6 +151,10 @@ struct Z_Construct_UClass_ACovenCharacter_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "CovenCharacter.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_InfluencePoints_MetaData[] = {
+		{ "Category", "Player Stats" },
+		{ "ModuleRelativePath", "CovenCharacter.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_PlayerCoven_MetaData[] = {
 		{ "Category", "Player Coven" },
 		{ "ModuleRelativePath", "CovenCharacter.h" },
@@ -164,6 +168,7 @@ struct Z_Construct_UClass_ACovenCharacter_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_LookAction;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_PlayerInteractionAction;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_InventoryComponent;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_InfluencePoints;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_PlayerCoven;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
@@ -184,6 +189,7 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACovenCharacte
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACovenCharacter_Statics::NewProp_LookAction = { "LookAction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACovenCharacter, LookAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LookAction_MetaData), NewProp_LookAction_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACovenCharacter_Statics::NewProp_PlayerInteractionAction = { "PlayerInteractionAction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACovenCharacter, PlayerInteractionAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PlayerInteractionAction_MetaData), NewProp_PlayerInteractionAction_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACovenCharacter_Statics::NewProp_InventoryComponent = { "InventoryComponent", nullptr, (EPropertyFlags)0x00100000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACovenCharacter, InventoryComponent), Z_Construct_UClass_UInventoryComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InventoryComponent_MetaData), NewProp_InventoryComponent_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ACovenCharacter_Statics::NewProp_InfluencePoints = { "InfluencePoints", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACovenCharacter, InfluencePoints), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InfluencePoints_MetaData), NewProp_InfluencePoints_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACovenCharacter_Statics::NewProp_PlayerCoven = { "PlayerCoven", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACovenCharacter, PlayerCoven), Z_Construct_UClass_APlayerCoven_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PlayerCoven_MetaData), NewProp_PlayerCoven_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACovenCharacter_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACovenCharacter_Statics::NewProp_CameraBoom,
@@ -194,6 +200,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACovenCha
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACovenCharacter_Statics::NewProp_LookAction,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACovenCharacter_Statics::NewProp_PlayerInteractionAction,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACovenCharacter_Statics::NewProp_InventoryComponent,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACovenCharacter_Statics::NewProp_InfluencePoints,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACovenCharacter_Statics::NewProp_PlayerCoven,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACovenCharacter_Statics::PropPointers) < 2048);
@@ -237,10 +244,10 @@ ACovenCharacter::~ACovenCharacter() {}
 struct Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ACovenCharacter, ACovenCharacter::StaticClass, TEXT("ACovenCharacter"), &Z_Registration_Info_UClass_ACovenCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACovenCharacter), 1179609355U) },
+		{ Z_Construct_UClass_ACovenCharacter, ACovenCharacter::StaticClass, TEXT("ACovenCharacter"), &Z_Registration_Info_UClass_ACovenCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACovenCharacter), 2562020482U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_2165899574(TEXT("/Script/Coven"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_4122240643(TEXT("/Script/Coven"),
 	Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

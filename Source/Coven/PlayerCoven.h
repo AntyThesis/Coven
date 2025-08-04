@@ -66,7 +66,7 @@ public:
 	virtual void EarnExp(float ExpToAdd);
 
 	UFUNCTION(BlueprintCallable, Category = "Coven functions")
-	virtual void AddWitch(ANPCBase* WitchToAdd);
+	virtual void AddWitch(ANPCBase* WitchToAdd, float ExpToGain);
 
 	UFUNCTION(BlueprintCallable, Category = "Coven functions")
 	virtual void RemoveWitch(ANPCBase* WitchToRemove);

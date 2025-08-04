@@ -15,15 +15,25 @@ class ACovenCharacter;
 #endif
 #define COVEN_NPCBase_generated_h
 
-#define FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_9_DELEGATE \
+COVEN_API void FOnApprovalGain_DelegateWrapper(const FMulticastScriptDelegate& OnApprovalGain);
+
+
+#define FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_10_DELEGATE \
+COVEN_API void FOnApprovalLoss_DelegateWrapper(const FMulticastScriptDelegate& OnApprovalLoss);
+
+
+#define FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void Interact_Implementation(ACovenCharacter* InteractingCharacter); \
+	DECLARE_FUNCTION(execLoseApproval); \
+	DECLARE_FUNCTION(execGainApproval); \
 	DECLARE_FUNCTION(execInteract); \
 	DECLARE_FUNCTION(execLeaveCoven); \
 	DECLARE_FUNCTION(execJoinCoven);
 
 
-#define FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_15_CALLBACK_WRAPPERS
-#define FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_15_INCLASS_NO_PURE_DECLS \
+#define FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_18_CALLBACK_WRAPPERS
+#define FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_18_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesANPCBase(); \
 	friend struct Z_Construct_UClass_ANPCBase_Statics; \
@@ -32,7 +42,7 @@ public: \
 	DECLARE_SERIALIZER(ANPCBase)
 
 
-#define FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_15_ENHANCED_CONSTRUCTORS \
+#define FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_18_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	ANPCBase(ANPCBase&&); \
@@ -44,14 +54,14 @@ public: \
 	NO_API virtual ~ANPCBase();
 
 
-#define FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_12_PROLOG
-#define FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_15_GENERATED_BODY \
+#define FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_15_PROLOG
+#define FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_18_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_15_CALLBACK_WRAPPERS \
-	FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_15_INCLASS_NO_PURE_DECLS \
-	FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_15_ENHANCED_CONSTRUCTORS \
+	FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_18_CALLBACK_WRAPPERS \
+	FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_18_INCLASS_NO_PURE_DECLS \
+	FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_18_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

@@ -57,11 +57,12 @@ void APlayerCoven::EarnExp(float ExpAmount)
 	}
 }
 
-void APlayerCoven::AddWitch(ANPCBase* WitchToAdd) {
+void APlayerCoven::AddWitch(ANPCBase* WitchToAdd, float ExpToGain) {
 	if (WitchToAdd) {
 		CovenWitches.Add(WitchToAdd); // Add the witch to the Coven's list
 		NumberOfWitches++; // Increment the number of witches in the Coven
 		OnWitchAdded.Broadcast(); // Broadcast the event that a witch has been added
+		EarnExp(ExpToGain); // Reward the player with some experience for adding a witch
 	}
 }
 

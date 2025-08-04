@@ -55,6 +55,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player Components")
 	UInventoryComponent* InventoryComponent;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player Stats")
+	int InfluencePoints;
+
 
 
 protected:
@@ -84,6 +87,10 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	virtual void PlayerInteraction();
+
+	virtual void GainInfluencePoints(int Points);
+
+	virtual void SpendInfluencePoints(int Points);
 
 	virtual void BeginPlay() override;
 };

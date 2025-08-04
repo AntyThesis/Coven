@@ -78,6 +78,7 @@ struct Z_Construct_UFunction_APlayerCoven_AddWitch_Statics
 	struct PlayerCoven_eventAddWitch_Parms
 	{
 		ANPCBase* WitchToAdd;
+		float ExpToGain;
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
@@ -86,12 +87,15 @@ struct Z_Construct_UFunction_APlayerCoven_AddWitch_Statics
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_WitchToAdd;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_ExpToGain;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_APlayerCoven_AddWitch_Statics::NewProp_WitchToAdd = { "WitchToAdd", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PlayerCoven_eventAddWitch_Parms, WitchToAdd), Z_Construct_UClass_ANPCBase_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_APlayerCoven_AddWitch_Statics::NewProp_ExpToGain = { "ExpToGain", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PlayerCoven_eventAddWitch_Parms, ExpToGain), METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_APlayerCoven_AddWitch_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APlayerCoven_AddWitch_Statics::NewProp_WitchToAdd,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APlayerCoven_AddWitch_Statics::NewProp_ExpToGain,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerCoven_AddWitch_Statics::PropPointers) < 2048);
 const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayerCoven_AddWitch_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayerCoven, nullptr, "AddWitch", nullptr, nullptr, Z_Construct_UFunction_APlayerCoven_AddWitch_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerCoven_AddWitch_Statics::PropPointers), sizeof(Z_Construct_UFunction_APlayerCoven_AddWitch_Statics::PlayerCoven_eventAddWitch_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerCoven_AddWitch_Statics::Function_MetaDataParams), Z_Construct_UFunction_APlayerCoven_AddWitch_Statics::Function_MetaDataParams) };
@@ -108,9 +112,10 @@ UFunction* Z_Construct_UFunction_APlayerCoven_AddWitch()
 DEFINE_FUNCTION(APlayerCoven::execAddWitch)
 {
 	P_GET_OBJECT(ANPCBase,Z_Param_WitchToAdd);
+	P_GET_PROPERTY(FFloatProperty,Z_Param_ExpToGain);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	P_THIS->AddWitch(Z_Param_WitchToAdd);
+	P_THIS->AddWitch(Z_Param_WitchToAdd,Z_Param_ExpToGain);
 	P_NATIVE_END;
 }
 // End Class APlayerCoven Function AddWitch
@@ -323,7 +328,7 @@ struct Z_Construct_UClass_APlayerCoven_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_APlayerCoven_AddWitch, "AddWitch" }, // 2125603251
+		{ &Z_Construct_UFunction_APlayerCoven_AddWitch, "AddWitch" }, // 2715114936
 		{ &Z_Construct_UFunction_APlayerCoven_EarnExp, "EarnExp" }, // 2355738327
 		{ &Z_Construct_UFunction_APlayerCoven_IncreaseLevel, "IncreaseLevel" }, // 1699142304
 		{ &Z_Construct_UFunction_APlayerCoven_RemoveWitch, "RemoveWitch" }, // 1243392841
@@ -397,10 +402,10 @@ APlayerCoven::~APlayerCoven() {}
 struct Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_PlayerCoven_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_APlayerCoven, APlayerCoven::StaticClass, TEXT("APlayerCoven"), &Z_Registration_Info_UClass_APlayerCoven, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerCoven), 3046139349U) },
+		{ Z_Construct_UClass_APlayerCoven, APlayerCoven::StaticClass, TEXT("APlayerCoven"), &Z_Registration_Info_UClass_APlayerCoven, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerCoven), 3198795746U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_PlayerCoven_h_3137507966(TEXT("/Script/Coven"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_PlayerCoven_h_339725899(TEXT("/Script/Coven"),
 	Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_PlayerCoven_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_PlayerCoven_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
