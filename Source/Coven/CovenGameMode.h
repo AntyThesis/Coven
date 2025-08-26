@@ -16,6 +16,7 @@ class ACovenGameMode : public AGameModeBase
 public:
 	ACovenGameMode();
 
+	void BeginPlay() override;
 	
 };
 

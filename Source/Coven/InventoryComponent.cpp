@@ -4,6 +4,8 @@
 #include "InventoryComponent.h"
 #include "ItemBase.h"
 #include "InventoryItemData.h" 
+#include "SaveGameObject.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values for this component's properties
 UInventoryComponent::UInventoryComponent()
@@ -43,6 +45,14 @@ void UInventoryComponent::AddItemToInventory(AItemBase* ItemToBeAdded) {
 
 		InventoryItems.Add(ItemToBeAdded); // Add the item to the inventory
 		OnItemAdded.Broadcast(ItemToBeAdded); // Broadcast the item added event
+
+		if (USaveGameObject* SaveGame = Cast<USaveGameObject>(UGameplayStatics::LoadGameFromSlot("PlayerSaveSlot", 0))) {
+			SaveGame->InventoryItems = GetSerializedInventoryItems(); // Update the saved inventory items
+
+			SaveGame->InventoryItemIDs.AddUnique(ItemToBeAdded->ItemID); // Add the item ID to the saved item IDs
+
+			UGameplayStatics::SaveGameToSlot(SaveGame, "PlayerSaveSlot", 0); // Save the game to the specified slot
+		}
 	}
 	else if (InventoryItems.Num() >= MaxInventorySize) {
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Inventory is full! Cannot add more items.")); // Display message if inventory is full
@@ -68,9 +78,9 @@ void UInventoryComponent::RemoveItemFromInventory(AItemBase* ItemToBeRemoved) {
 
 
 
-TArray<FInventoryItemData> UInventoryComponent::GetSerializedInventoryItems() const{
+TArray<FInventoryItemData> UInventoryComponent::GetSerializedInventoryItems(){
 
-	TArray<FInventoryItemData> SerializedInventoryItems; // Array to hold serialized inventory items
+
 
 	for (const AItemBase* Item : InventoryItems) {
 
@@ -80,7 +90,7 @@ TArray<FInventoryItemData> UInventoryComponent::GetSerializedInventoryItems() co
 			ItemData.IconFilePath = Item->ItemIcon->GetPathName(); // Serialize the item icon path
 			ItemData.ItemClassPath = Item->GetClass()->GetPathName(); // Serialize the item class path
 
-			SerializedInventoryItems.Add(ItemData);
+			SerializedInventoryItems.Add(ItemData); // Add the serialized item data to the array
 	
 		}
 	}
@@ -89,7 +99,7 @@ TArray<FInventoryItemData> UInventoryComponent::GetSerializedInventoryItems() co
 
 
 void UInventoryComponent::GetDeserializedInventoryItems(const TArray<FInventoryItemData>& SerializedItems) {
-	
+	InventoryItems.Empty(); // Clear existing inventory items before adding deserialized items
 
 	for (const FInventoryItemData& ItemData : SerializedItems) {
 
@@ -100,6 +110,8 @@ void UInventoryComponent::GetDeserializedInventoryItems(const TArray<FInventoryI
 		
 			NewItem->ItemName = ItemData.ItemName; // Set the item name
 			NewItem->ItemIcon = LoadObject<UTexture2D>(nullptr, *ItemData.IconFilePath); // Load the item icon from the file path
+
+			
 
 			AddItemToInventory(NewItem); // Add the new item to the deserialized items array
 		}

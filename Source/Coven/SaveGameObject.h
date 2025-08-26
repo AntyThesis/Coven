@@ -23,6 +23,9 @@ public:
 	TArray<FInventoryItemData> InventoryItems; // Array to hold inventory items
 
 	UPROPERTY(VisibleAnywhere, Category = "Save Game")
+	TArray<int> InventoryItemIDs; // Array to hold inventory item IDs for saving
+
+	UPROPERTY(VisibleAnywhere, Category = "Save Game")
 	FVector PlayerLocation; // Player's location in the game world
 
 	UPROPERTY(VisibleAnywhere, Category = "Save Game")

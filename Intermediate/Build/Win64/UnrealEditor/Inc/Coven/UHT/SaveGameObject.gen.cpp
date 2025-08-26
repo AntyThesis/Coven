@@ -43,7 +43,7 @@ struct Z_Construct_UClass_USaveGameObject_Statics
 		{ "Category", "Save Game" },
 		{ "ModuleRelativePath", "SaveGameObject.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_PlayerLocation_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_InventoryItemIDs_MetaData[] = {
 		{ "Category", "Save Game" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// Array to hold inventory items\n" },
@@ -51,6 +51,16 @@ struct Z_Construct_UClass_USaveGameObject_Statics
 		{ "ModuleRelativePath", "SaveGameObject.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Array to hold inventory items" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_PlayerLocation_MetaData[] = {
+		{ "Category", "Save Game" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Array to hold inventory item IDs for saving\n" },
+#endif
+		{ "ModuleRelativePath", "SaveGameObject.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Array to hold inventory item IDs for saving" },
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_PlayerRotation_MetaData[] = {
@@ -116,6 +126,8 @@ struct Z_Construct_UClass_USaveGameObject_Statics
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FStructPropertyParams NewProp_InventoryItems_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_InventoryItems;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_InventoryItemIDs_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_InventoryItemIDs;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_PlayerLocation;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_PlayerRotation;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_CovenLevel;
@@ -132,6 +144,8 @@ struct Z_Construct_UClass_USaveGameObject_Statics
 };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_USaveGameObject_Statics::NewProp_InventoryItems_Inner = { "InventoryItems", nullptr, (EPropertyFlags)0x0000000000020000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FInventoryItemData, METADATA_PARAMS(0, nullptr) }; // 1141982336
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_USaveGameObject_Statics::NewProp_InventoryItems = { "InventoryItems", nullptr, (EPropertyFlags)0x0010000000020001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USaveGameObject, InventoryItems), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InventoryItems_MetaData), NewProp_InventoryItems_MetaData) }; // 1141982336
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_USaveGameObject_Statics::NewProp_InventoryItemIDs_Inner = { "InventoryItemIDs", nullptr, (EPropertyFlags)0x0000000000020000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_USaveGameObject_Statics::NewProp_InventoryItemIDs = { "InventoryItemIDs", nullptr, (EPropertyFlags)0x0010000000020001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USaveGameObject, InventoryItemIDs), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InventoryItemIDs_MetaData), NewProp_InventoryItemIDs_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_USaveGameObject_Statics::NewProp_PlayerLocation = { "PlayerLocation", nullptr, (EPropertyFlags)0x0010000000020001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USaveGameObject, PlayerLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PlayerLocation_MetaData), NewProp_PlayerLocation_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_USaveGameObject_Statics::NewProp_PlayerRotation = { "PlayerRotation", nullptr, (EPropertyFlags)0x0010000000020001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USaveGameObject, PlayerRotation), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PlayerRotation_MetaData), NewProp_PlayerRotation_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_USaveGameObject_Statics::NewProp_CovenLevel = { "CovenLevel", nullptr, (EPropertyFlags)0x0010000000020001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USaveGameObject, CovenLevel), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CovenLevel_MetaData), NewProp_CovenLevel_MetaData) };
@@ -142,6 +156,8 @@ const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_USaveGameObject_S
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_USaveGameObject_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USaveGameObject_Statics::NewProp_InventoryItems_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USaveGameObject_Statics::NewProp_InventoryItems,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USaveGameObject_Statics::NewProp_InventoryItemIDs_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USaveGameObject_Statics::NewProp_InventoryItemIDs,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USaveGameObject_Statics::NewProp_PlayerLocation,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USaveGameObject_Statics::NewProp_PlayerRotation,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USaveGameObject_Statics::NewProp_CovenLevel,
@@ -192,10 +208,10 @@ USaveGameObject::~USaveGameObject() {}
 struct Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_SaveGameObject_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_USaveGameObject, USaveGameObject::StaticClass, TEXT("USaveGameObject"), &Z_Registration_Info_UClass_USaveGameObject, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USaveGameObject), 2218893012U) },
+		{ Z_Construct_UClass_USaveGameObject, USaveGameObject::StaticClass, TEXT("USaveGameObject"), &Z_Registration_Info_UClass_USaveGameObject, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USaveGameObject), 1046718718U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_SaveGameObject_h_4209602558(TEXT("/Script/Coven"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_SaveGameObject_h_1611017447(TEXT("/Script/Coven"),
 	Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_SaveGameObject_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_SaveGameObject_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

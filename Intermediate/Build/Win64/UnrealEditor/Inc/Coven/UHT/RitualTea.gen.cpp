@@ -82,10 +82,10 @@ ARitualTea::~ARitualTea() {}
 struct Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_RitualTea_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ARitualTea, ARitualTea::StaticClass, TEXT("ARitualTea"), &Z_Registration_Info_UClass_ARitualTea, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ARitualTea), 937811492U) },
+		{ Z_Construct_UClass_ARitualTea, ARitualTea::StaticClass, TEXT("ARitualTea"), &Z_Registration_Info_UClass_ARitualTea, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ARitualTea), 3404056019U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_RitualTea_h_3086764705(TEXT("/Script/Coven"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_RitualTea_h_1996423361(TEXT("/Script/Coven"),
 	Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_RitualTea_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_RitualTea_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -4,6 +4,8 @@
 #include "CovenCharacter.h"
 #include "Kismet/GameplayStatics.h"
 #include "ItemBase.h"
+#include "SaveGameObject.h"
+#include "EngineUtils.h"
 #include "UObject/ConstructorHelpers.h"
 
 ACovenGameMode::ACovenGameMode()
@@ -15,3 +17,23 @@ ACovenGameMode::ACovenGameMode()
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
 }
+
+
+void ACovenGameMode::BeginPlay() {
+	Super::BeginPlay();
+
+        USaveGameObject* SaveGame = Cast<USaveGameObject>(UGameplayStatics::LoadGameFromSlot("PlayerSave", 0));
+
+        if (SaveGame)
+        {
+            for (TActorIterator<AItemBase> It(GetWorld()); It; ++It)
+            {
+                AItemBase* Item = *It;
+                if (SaveGame->InventoryItemIDs.Contains(Item->ItemID))
+                {
+                    // Already picked up -> remove from world
+					Item->SetActorHiddenInGame(true);
+                }
+            }
+        }
+    }

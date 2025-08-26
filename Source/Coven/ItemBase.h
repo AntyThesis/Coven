@@ -31,6 +31,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item Properties")
 	UStaticMeshComponent* ItemMesh; // Mesh for the item
 
+	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "Item Properties")
+	int ItemID; // Unique ID for the item
 	
 		
 protected:

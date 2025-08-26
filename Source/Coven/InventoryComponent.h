@@ -33,6 +33,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Inventory")
 	int MaxInventorySize; // Maximum number of items allowed in the inventory
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Inventory")
+	TArray<FInventoryItemData> SerializedInventoryItems; // Array to hold serialized inventory items
+
 	
 
 protected:
@@ -50,7 +53,7 @@ public:
 	void RemoveItemFromInventory(AItemBase* ItemToBeRemoved); // Function to remove an item from the inventory
 
 
-	TArray<FInventoryItemData> GetSerializedInventoryItems() const; // Function to serialize inventory items to an array of strings
+	TArray<FInventoryItemData> GetSerializedInventoryItems(); // Function to serialize inventory items to an array of strings
 
 	void GetDeserializedInventoryItems(const TArray<FInventoryItemData>& SerializedItems); // Function to deserialize inventory items from an array of strings
 
