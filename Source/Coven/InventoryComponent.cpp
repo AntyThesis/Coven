@@ -2,6 +2,8 @@
 
 
 #include "InventoryComponent.h"
+#include "ItemBase.h"
+#include "InventoryItemData.h" 
 
 // Sets default values for this component's properties
 UInventoryComponent::UInventoryComponent()
@@ -33,12 +35,14 @@ void UInventoryComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 	// ...
 }
 
+
+
 // Function to add item to the inventory
 void UInventoryComponent::AddItemToInventory(AItemBase* ItemToBeAdded) {
 	if (InventoryItems.Num() < MaxInventorySize && ItemToBeAdded != nullptr) {
 
 		InventoryItems.Add(ItemToBeAdded); // Add the item to the inventory
-		OnItemAdded.Broadcast(); // Broadcast the item added event
+		OnItemAdded.Broadcast(ItemToBeAdded); // Broadcast the item added event
 	}
 	else if (InventoryItems.Num() >= MaxInventorySize) {
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Inventory is full! Cannot add more items.")); // Display message if inventory is full
@@ -47,6 +51,8 @@ void UInventoryComponent::AddItemToInventory(AItemBase* ItemToBeAdded) {
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Item to be added is null!")); // Display message if item is null
 	}
 }
+
+
 
 // Function to remove item from the inventory
 void UInventoryComponent::RemoveItemFromInventory(AItemBase* ItemToBeRemoved) {
@@ -60,3 +66,43 @@ void UInventoryComponent::RemoveItemFromInventory(AItemBase* ItemToBeRemoved) {
 	}
 }
 
+
+
+TArray<FInventoryItemData> UInventoryComponent::GetSerializedInventoryItems() const{
+
+	TArray<FInventoryItemData> SerializedInventoryItems; // Array to hold serialized inventory items
+
+	for (const AItemBase* Item : InventoryItems) {
+
+		if (Item) {
+			FInventoryItemData ItemData;
+			ItemData.ItemName = Item->ItemName;
+			ItemData.IconFilePath = Item->ItemIcon->GetPathName(); // Serialize the item icon path
+			ItemData.ItemClassPath = Item->GetClass()->GetPathName(); // Serialize the item class path
+
+			SerializedInventoryItems.Add(ItemData);
+	
+		}
+	}
+	return SerializedInventoryItems; // Return the array of serialized inventory items
+}
+
+
+void UInventoryComponent::GetDeserializedInventoryItems(const TArray<FInventoryItemData>& SerializedItems) {
+	
+
+	for (const FInventoryItemData& ItemData : SerializedItems) {
+
+		UClass* ItemClass = LoadObject<UClass>(nullptr, *ItemData.ItemClassPath); // Load the item class from the serialized path
+
+		if (ItemClass) {
+			AItemBase* NewItem = GetWorld()->SpawnActor<AItemBase>(ItemClass); // Spawn a new item actor
+		
+			NewItem->ItemName = ItemData.ItemName; // Set the item name
+			NewItem->ItemIcon = LoadObject<UTexture2D>(nullptr, *ItemData.IconFilePath); // Load the item icon from the file path
+
+			AddItemToInventory(NewItem); // Add the new item to the deserialized items array
+		}
+	}
+	
+}

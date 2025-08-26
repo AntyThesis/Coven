@@ -20,6 +20,8 @@ public:
 	// Sets default values for this actor's properties
 	AItemBase();
 
+
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item Properties")
 	UTexture2D* ItemIcon; // Icon for the item
 

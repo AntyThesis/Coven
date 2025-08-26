@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
+#include "InventoryItemData.h" 
+#include "ItemBase.h"
 #include "CovenGameMode.generated.h"
 
 UCLASS(minimalapi)
@@ -13,6 +15,8 @@ class ACovenGameMode : public AGameModeBase
 
 public:
 	ACovenGameMode();
+
+	
 };
 
 

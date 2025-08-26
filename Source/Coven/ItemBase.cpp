@@ -5,6 +5,7 @@
 #include "InventoryComponent.h"
 #include "CovenCharacter.h"
 #include "Components/BoxComponent.h"
+#include "Kismet/GameplayStatics.h"
 
 
 // Sets default values
@@ -24,6 +25,9 @@ AItemBase::AItemBase()
 void AItemBase::BeginPlay()
 {
 	Super::BeginPlay();
+
+	
+	
 	
 }
 
@@ -52,6 +56,7 @@ void AItemBase::Interact(ACovenCharacter* InteractingCharacter) {
 
 void AItemBase::UseItem(ACovenCharacter* UsingCharacter) {
 	if (UsingCharacter == nullptr) {
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("UsingCharacter is null!")); // Display an error message if the character is null
 		return; // If the character is null, do nothing
 	}
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Using item: %s"), *ItemName)); // Display a message when the item is used

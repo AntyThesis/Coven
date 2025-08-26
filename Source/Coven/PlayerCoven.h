@@ -70,5 +70,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Coven functions")
 	virtual void RemoveWitch(ANPCBase* WitchToRemove);
+
+
 		
 };

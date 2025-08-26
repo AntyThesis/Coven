@@ -2,6 +2,8 @@
 
 #include "CovenGameMode.h"
 #include "CovenCharacter.h"
+#include "Kismet/GameplayStatics.h"
+#include "ItemBase.h"
 #include "UObject/ConstructorHelpers.h"
 
 ACovenGameMode::ACovenGameMode()

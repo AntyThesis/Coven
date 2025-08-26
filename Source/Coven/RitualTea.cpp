@@ -20,6 +20,9 @@ void ARitualTea::UseItem(ACovenCharacter* UsingCharacter) {
 		UsingCharacter->PlayerCoven->EarnExp(500.f);
 		
 	}
-
+	else{
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("UsingCharacter or PlayerCoven is null!")); // Display an error message if the character or coven is null
+		return; // If the character or coven is null, do nothing
+	}
 
 }

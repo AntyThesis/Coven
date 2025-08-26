@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define COVEN_CovenGameMode_generated_h
 
-#define FID_Unreal_Projects_Coven_Source_Coven_CovenGameMode_h_12_INCLASS_NO_PURE_DECLS \
+#define FID_Unreal_Projects_Coven_Source_Coven_CovenGameMode_h_14_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesACovenGameMode(); \
 	friend struct Z_Construct_UClass_ACovenGameMode_Statics; \
@@ -23,7 +23,7 @@ public: \
 	DECLARE_SERIALIZER(ACovenGameMode)
 
 
-#define FID_Unreal_Projects_Coven_Source_Coven_CovenGameMode_h_12_ENHANCED_CONSTRUCTORS \
+#define FID_Unreal_Projects_Coven_Source_Coven_CovenGameMode_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	ACovenGameMode(ACovenGameMode&&); \
@@ -35,12 +35,12 @@ public: \
 	COVEN_API virtual ~ACovenGameMode();
 
 
-#define FID_Unreal_Projects_Coven_Source_Coven_CovenGameMode_h_9_PROLOG
-#define FID_Unreal_Projects_Coven_Source_Coven_CovenGameMode_h_12_GENERATED_BODY \
+#define FID_Unreal_Projects_Coven_Source_Coven_CovenGameMode_h_11_PROLOG
+#define FID_Unreal_Projects_Coven_Source_Coven_CovenGameMode_h_14_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Unreal_Projects_Coven_Source_Coven_CovenGameMode_h_12_INCLASS_NO_PURE_DECLS \
-	FID_Unreal_Projects_Coven_Source_Coven_CovenGameMode_h_12_ENHANCED_CONSTRUCTORS \
+	FID_Unreal_Projects_Coven_Source_Coven_CovenGameMode_h_14_INCLASS_NO_PURE_DECLS \
+	FID_Unreal_Projects_Coven_Source_Coven_CovenGameMode_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

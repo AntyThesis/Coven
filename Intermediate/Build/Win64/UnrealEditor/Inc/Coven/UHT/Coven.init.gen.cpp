@@ -9,6 +9,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeCoven_init() {}
 	COVEN_API UFunction* Z_Construct_UDelegateFunction_Coven_OnApprovalGain__DelegateSignature();
 	COVEN_API UFunction* Z_Construct_UDelegateFunction_Coven_OnApprovalLoss__DelegateSignature();
+	COVEN_API UFunction* Z_Construct_UDelegateFunction_Coven_OnGameLoaded__DelegateSignature();
 	COVEN_API UFunction* Z_Construct_UDelegateFunction_Coven_OnItemAdded__DelegateSignature();
 	COVEN_API UFunction* Z_Construct_UDelegateFunction_Coven_OnItemRemoved__DelegateSignature();
 	COVEN_API UFunction* Z_Construct_UDelegateFunction_Coven_OnWitchAdded__DelegateSignature();
@@ -21,6 +22,7 @@ void EmptyLinkFunctionForGeneratedCodeCoven_init() {}
 			static UObject* (*const SingletonFuncArray[])() = {
 				(UObject* (*)())Z_Construct_UDelegateFunction_Coven_OnApprovalGain__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_Coven_OnApprovalLoss__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_Coven_OnGameLoaded__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_Coven_OnItemAdded__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_Coven_OnItemRemoved__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_Coven_OnWitchAdded__DelegateSignature,
@@ -31,13 +33,13 @@ void EmptyLinkFunctionForGeneratedCodeCoven_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0xBCDE8BB7,
-				0x6986422E,
+				0x9A80DC27,
+				0xEF3F6FCA,
 				METADATA_PARAMS(0, nullptr)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_Coven.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_Coven.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_Coven(Z_Construct_UPackage__Script_Coven, TEXT("/Script/Coven"), Z_Registration_Info_UPackage__Script_Coven, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xBCDE8BB7, 0x6986422E));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_Coven(Z_Construct_UPackage__Script_Coven, TEXT("/Script/Coven"), Z_Registration_Info_UPackage__Script_Coven, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x9A80DC27, 0xEF3F6FCA));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

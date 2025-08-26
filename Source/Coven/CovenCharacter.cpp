@@ -9,6 +9,7 @@
 #include "GameFramework/Controller.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "CovenGameMode.h"
 #include "InventoryComponent.h"
 #include "InputActionValue.h"
 #include "Kismet/KismetSystemLibrary.h"
@@ -17,6 +18,7 @@
 #include "PlayerCoven.h"
 #include "RitualTea.h"
 #include "NPCBase.h"
+#include "SaveGameObject.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
@@ -173,6 +175,7 @@ void ACovenCharacter::BeginPlay()
 	Super::BeginPlay();
 	
 	PlayerCoven = Cast<APlayerCoven>(UGameplayStatics::GetActorOfClass(GetWorld(), APlayerCoven::StaticClass())); // Set the Player Coven
+
 	
 	if (PlayerCoven != nullptr) {
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Player Coven Set.")); // Print a debug for if the coven is set successfully
@@ -191,4 +194,68 @@ void ACovenCharacter::GainInfluencePoints(int Points) {
 void ACovenCharacter::SpendInfluencePoints(int Points) {
 	InfluencePoints -= Points; // Decrease the influence points by the specified amount
 	InfluencePoints = FMath::Clamp(InfluencePoints, 0, 1000000000); // Ensure influence points do not go below zero
+}
+
+
+void ACovenCharacter::SaveGame() {
+	USaveGameObject* SaveGameInstance = Cast<USaveGameObject>(UGameplayStatics::CreateSaveGameObject(USaveGameObject::StaticClass()));
+
+	if (SaveGameInstance) {
+
+		// Save the player's inventory items
+		TArray<FInventoryItemData> SerializedItems = InventoryComponent->GetSerializedInventoryItems(); // Get the serialized inventory items from the inventory component
+		SaveGameInstance->InventoryItems = SerializedItems; // Store the serialized inventory items in the save game instance
+
+		// Save the player's location and rotation
+		SaveGameInstance->PlayerLocation = GetActorLocation();
+		SaveGameInstance->PlayerRotation = GetActorRotation();
+
+
+		// Save the player's coven data
+		SaveGameInstance->CovenLevel = PlayerCoven->CovenLevel;
+		SaveGameInstance->ExpThreshold = PlayerCoven->ExpThreshold;
+		SaveGameInstance->CurrentExp = PlayerCoven->CurrentExp;
+		SaveGameInstance->ExpNeeded = PlayerCoven->ExpNeeded;
+		SaveGameInstance->NumberOfWitches = PlayerCoven->NumberOfWitches;
+
+
+		// Save the game to a file
+		if (UGameplayStatics::SaveGameToSlot(SaveGameInstance, TEXT("PlayerCovenSave"), 0)) {
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Game saved successfully!"));
+		}
+		else {
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Failed to save game!"));
+		}
+	}
+	else {
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Failed to create save game instance!"));
+	}
+}
+
+
+void ACovenCharacter::LoadGame() {
+	// Load the game from the save file
+	USaveGameObject* LoadGameInstance = Cast<USaveGameObject>(UGameplayStatics::LoadGameFromSlot(TEXT("PlayerCovenSave"), 0));
+
+	if (LoadGameInstance) {
+		// Load the player's inventory items
+		InventoryComponent->GetDeserializedInventoryItems(LoadGameInstance->InventoryItems);
+
+		// Load the player's location and rotation
+		SetActorLocation(LoadGameInstance->PlayerLocation);
+		SetActorRotation(LoadGameInstance->PlayerRotation);
+
+		// Load the player's coven data
+		PlayerCoven->CovenLevel = LoadGameInstance->CovenLevel;
+		PlayerCoven->ExpThreshold = LoadGameInstance->ExpThreshold;
+		PlayerCoven->CurrentExp = LoadGameInstance->CurrentExp;
+		PlayerCoven->ExpNeeded = LoadGameInstance->ExpNeeded;
+		PlayerCoven->NumberOfWitches = LoadGameInstance->NumberOfWitches;
+
+		OnGameLoaded.Broadcast(); // Broadcast the OnGameLoaded event after loading the game
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Game loaded successfully!"));
+	}
+	else {
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Failed to load game!"));
+	}
 }

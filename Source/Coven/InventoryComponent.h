@@ -4,9 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "InventoryItemData.h" 
 #include "InventoryComponent.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnItemAdded); // Delegate for item added event
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnItemAdded, AItemBase*, ItemToBeAdded); // Delegate for item added event
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnItemRemoved); // Delegate for item removed event
 
 class AItemBase;
@@ -32,6 +33,8 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Inventory")
 	int MaxInventorySize; // Maximum number of items allowed in the inventory
 
+	
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -45,6 +48,11 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void RemoveItemFromInventory(AItemBase* ItemToBeRemoved); // Function to remove an item from the inventory
+
+
+	TArray<FInventoryItemData> GetSerializedInventoryItems() const; // Function to serialize inventory items to an array of strings
+
+	void GetDeserializedInventoryItems(const TArray<FInventoryItemData>& SerializedItems); // Function to deserialize inventory items from an array of strings
 
 		
 };
