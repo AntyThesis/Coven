@@ -45,14 +45,6 @@ void UInventoryComponent::AddItemToInventory(AItemBase* ItemToBeAdded) {
 
 		InventoryItems.Add(ItemToBeAdded); // Add the item to the inventory
 		OnItemAdded.Broadcast(ItemToBeAdded); // Broadcast the item added event
-
-		if (USaveGameObject* SaveGame = Cast<USaveGameObject>(UGameplayStatics::LoadGameFromSlot("PlayerSaveSlot", 0))) {
-			SaveGame->InventoryItems = GetSerializedInventoryItems(); // Update the saved inventory items
-
-			SaveGame->InventoryItemIDs.AddUnique(ItemToBeAdded->ItemID); // Add the item ID to the saved item IDs
-
-			UGameplayStatics::SaveGameToSlot(SaveGame, "PlayerSaveSlot", 0); // Save the game to the specified slot
-		}
 	}
 	else if (InventoryItems.Num() >= MaxInventorySize) {
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Inventory is full! Cannot add more items.")); // Display message if inventory is full
