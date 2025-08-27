@@ -38,7 +38,11 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "NPC Properties")
 	bool bIsWitch = false; // Flag to indicate if the NPC is a witch
 
-	float ExpToGrant = 200.f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "NPC Properties")
+	float ExpToGrant = 200.f; // Experience points to grant to the coven upon joining
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "NPC Properties")
+	int InfluenceToGrant = 50; // Influence points to grant to the player upon joining
 
 protected:
 	// Called when the game starts or when spawned

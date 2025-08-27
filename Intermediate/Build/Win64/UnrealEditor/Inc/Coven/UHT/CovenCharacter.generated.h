@@ -14,20 +14,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define COVEN_CovenCharacter_generated_h
 
-#define FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_19_DELEGATE \
-COVEN_API void FOnGameLoaded_DelegateWrapper(const FMulticastScriptDelegate& OnGameLoaded);
-
-
-#define FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_26_RPC_WRAPPERS_NO_PURE_DECLS \
-	DECLARE_FUNCTION(execLoadGame); \
-	DECLARE_FUNCTION(execSaveGame); \
+#define FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_25_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execBeginPlay); \
 	DECLARE_FUNCTION(execSpendInfluencePoints); \
 	DECLARE_FUNCTION(execGainInfluencePoints); \
 	DECLARE_FUNCTION(execPlayerInteraction);
 
 
-#define FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_26_INCLASS_NO_PURE_DECLS \
+#define FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_25_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesACovenCharacter(); \
 	friend struct Z_Construct_UClass_ACovenCharacter_Statics; \
@@ -36,7 +30,7 @@ public: \
 	DECLARE_SERIALIZER(ACovenCharacter)
 
 
-#define FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_26_ENHANCED_CONSTRUCTORS \
+#define FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_25_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	ACovenCharacter(ACovenCharacter&&); \
@@ -48,13 +42,13 @@ public: \
 	NO_API virtual ~ACovenCharacter();
 
 
-#define FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_23_PROLOG
-#define FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_26_GENERATED_BODY \
+#define FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_22_PROLOG
+#define FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_25_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_26_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_26_INCLASS_NO_PURE_DECLS \
-	FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_26_ENHANCED_CONSTRUCTORS \
+	FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_25_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_25_INCLASS_NO_PURE_DECLS \
+	FID_Unreal_Projects_Coven_Source_Coven_CovenCharacter_h_25_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

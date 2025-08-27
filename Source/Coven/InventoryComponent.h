@@ -52,10 +52,4 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void RemoveItemFromInventory(AItemBase* ItemToBeRemoved); // Function to remove an item from the inventory
 
-
-	TArray<FInventoryItemData> GetSerializedInventoryItems(); // Function to serialize inventory items to an array of strings
-
-	void GetDeserializedInventoryItems(const TArray<FInventoryItemData>& SerializedItems); // Function to deserialize inventory items from an array of strings
-
-		
 };

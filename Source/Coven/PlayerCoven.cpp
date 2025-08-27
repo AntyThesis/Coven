@@ -24,10 +24,10 @@ APlayerCoven::APlayerCoven()
 void APlayerCoven::BeginPlay()
 {
 	Super::BeginPlay();
-	PlayerCharacter = Cast<ACovenCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
+	PlayerCharacter = Cast<ACovenCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0)); // Get the player character
 
 	if (!IsValid(PlayerCharacter)){
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("PlayerCharacter is NULL! Check if the player character is set correctly."));
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("PlayerCharacter is NULL! Check if the player character is set correctly.")); // Debug message if player character is not valid
 	}
 	
 }
@@ -63,6 +63,7 @@ void APlayerCoven::AddWitch(ANPCBase* WitchToAdd, float ExpToGain) {
 		NumberOfWitches++; // Increment the number of witches in the Coven
 		OnWitchAdded.Broadcast(); // Broadcast the event that a witch has been added
 		EarnExp(ExpToGain); // Reward the player with some experience for adding a witch
+		PlayerCharacter->GainInfluencePoints(WitchToAdd->InfluenceToGrant); // Reward the player with influence points for adding a witch
 	}
 }
 

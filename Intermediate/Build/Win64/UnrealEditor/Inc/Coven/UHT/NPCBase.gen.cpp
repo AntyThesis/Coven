@@ -391,6 +391,26 @@ struct Z_Construct_UClass_ANPCBase_Statics
 		{ "ToolTip", "Maximum approval rating" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ExpToGrant_MetaData[] = {
+		{ "Category", "NPC Properties" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Flag to indicate if the NPC is a witch\n" },
+#endif
+		{ "ModuleRelativePath", "NPCBase.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Flag to indicate if the NPC is a witch" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_InfluenceToGrant_MetaData[] = {
+		{ "Category", "NPC Properties" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Experience points to grant to the coven upon joining\n" },
+#endif
+		{ "ModuleRelativePath", "NPCBase.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Experience points to grant to the coven upon joining" },
+#endif
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnApprovalGain;
 	static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnApprovalLoss;
@@ -399,6 +419,8 @@ struct Z_Construct_UClass_ANPCBase_Statics
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_MaxApproval;
 	static void NewProp_bIsWitch_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsWitch;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_ExpToGrant;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_InfluenceToGrant;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -424,6 +446,8 @@ void Z_Construct_UClass_ANPCBase_Statics::NewProp_bIsWitch_SetBit(void* Obj)
 	((ANPCBase*)Obj)->bIsWitch = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ANPCBase_Statics::NewProp_bIsWitch = { "bIsWitch", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ANPCBase), &Z_Construct_UClass_ANPCBase_Statics::NewProp_bIsWitch_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsWitch_MetaData), NewProp_bIsWitch_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ANPCBase_Statics::NewProp_ExpToGrant = { "ExpToGrant", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANPCBase, ExpToGrant), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ExpToGrant_MetaData), NewProp_ExpToGrant_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ANPCBase_Statics::NewProp_InfluenceToGrant = { "InfluenceToGrant", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANPCBase, InfluenceToGrant), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InfluenceToGrant_MetaData), NewProp_InfluenceToGrant_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ANPCBase_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANPCBase_Statics::NewProp_OnApprovalGain,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANPCBase_Statics::NewProp_OnApprovalLoss,
@@ -431,6 +455,8 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ANPCBase_
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANPCBase_Statics::NewProp_PlayerApproval,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANPCBase_Statics::NewProp_MaxApproval,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANPCBase_Statics::NewProp_bIsWitch,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANPCBase_Statics::NewProp_ExpToGrant,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANPCBase_Statics::NewProp_InfluenceToGrant,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ANPCBase_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ANPCBase_Statics::DependentSingletons[])() = {
@@ -473,10 +499,10 @@ ANPCBase::~ANPCBase() {}
 struct Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ANPCBase, ANPCBase::StaticClass, TEXT("ANPCBase"), &Z_Registration_Info_UClass_ANPCBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ANPCBase), 3003748851U) },
+		{ Z_Construct_UClass_ANPCBase, ANPCBase::StaticClass, TEXT("ANPCBase"), &Z_Registration_Info_UClass_ANPCBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ANPCBase), 1869719448U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_1668329444(TEXT("/Script/Coven"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_3634846451(TEXT("/Script/Coven"),
 	Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_NPCBase_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

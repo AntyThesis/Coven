@@ -16,7 +16,6 @@ struct FInputActionValue;
 class APlayerCoven;
 class ACovenGameMode;
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnGameLoaded);
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
 
@@ -24,9 +23,6 @@ UCLASS(config=Game)
 class COVEN_API ACovenCharacter : public ACharacter
 {
 	GENERATED_BODY()
-
-	UPROPERTY(BlueprintAssignable);
-	FOnGameLoaded OnGameLoaded;
 
 	/** Camera boom positioning the camera behind the character */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
@@ -104,10 +100,5 @@ public:
 	UFUNCTION(BlueprintCallable)
 	virtual void BeginPlay() override;
 
-	UFUNCTION(BlueprintCallable)
-	virtual void SaveGame();
-
-	UFUNCTION(BlueprintCallable)
-	virtual void LoadGame();
 };
 
