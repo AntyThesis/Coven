@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
-#include "InventoryItemData.h" 
 #include "ItemBase.h"
 #include "CovenGameMode.generated.h"
 
@@ -16,8 +15,6 @@ class ACovenGameMode : public AGameModeBase
 public:
 	ACovenGameMode();
 
-	void BeginPlay() override;
-	
 };
 
 

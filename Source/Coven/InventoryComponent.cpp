@@ -3,8 +3,6 @@
 
 #include "InventoryComponent.h"
 #include "ItemBase.h"
-#include "InventoryItemData.h" 
-#include "SaveGameObject.h"
 #include "Kismet/GameplayStatics.h"
 
 // Sets default values for this component's properties

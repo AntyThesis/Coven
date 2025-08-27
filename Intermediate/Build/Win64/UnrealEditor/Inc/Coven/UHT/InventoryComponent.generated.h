@@ -15,20 +15,20 @@ class AItemBase;
 #endif
 #define COVEN_InventoryComponent_generated_h
 
-#define FID_Unreal_Projects_Coven_Source_Coven_InventoryComponent_h_10_DELEGATE \
+#define FID_Unreal_Projects_Coven_Source_Coven_InventoryComponent_h_9_DELEGATE \
 COVEN_API void FOnItemAdded_DelegateWrapper(const FMulticastScriptDelegate& OnItemAdded, AItemBase* ItemToBeAdded);
 
 
-#define FID_Unreal_Projects_Coven_Source_Coven_InventoryComponent_h_11_DELEGATE \
+#define FID_Unreal_Projects_Coven_Source_Coven_InventoryComponent_h_10_DELEGATE \
 COVEN_API void FOnItemRemoved_DelegateWrapper(const FMulticastScriptDelegate& OnItemRemoved);
 
 
-#define FID_Unreal_Projects_Coven_Source_Coven_InventoryComponent_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Unreal_Projects_Coven_Source_Coven_InventoryComponent_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execRemoveItemFromInventory); \
 	DECLARE_FUNCTION(execAddItemToInventory);
 
 
-#define FID_Unreal_Projects_Coven_Source_Coven_InventoryComponent_h_18_INCLASS_NO_PURE_DECLS \
+#define FID_Unreal_Projects_Coven_Source_Coven_InventoryComponent_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUInventoryComponent(); \
 	friend struct Z_Construct_UClass_UInventoryComponent_Statics; \
@@ -37,7 +37,7 @@ public: \
 	DECLARE_SERIALIZER(UInventoryComponent)
 
 
-#define FID_Unreal_Projects_Coven_Source_Coven_InventoryComponent_h_18_ENHANCED_CONSTRUCTORS \
+#define FID_Unreal_Projects_Coven_Source_Coven_InventoryComponent_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UInventoryComponent(UInventoryComponent&&); \
@@ -49,13 +49,13 @@ public: \
 	NO_API virtual ~UInventoryComponent();
 
 
-#define FID_Unreal_Projects_Coven_Source_Coven_InventoryComponent_h_15_PROLOG
-#define FID_Unreal_Projects_Coven_Source_Coven_InventoryComponent_h_18_GENERATED_BODY \
+#define FID_Unreal_Projects_Coven_Source_Coven_InventoryComponent_h_14_PROLOG
+#define FID_Unreal_Projects_Coven_Source_Coven_InventoryComponent_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Unreal_Projects_Coven_Source_Coven_InventoryComponent_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Unreal_Projects_Coven_Source_Coven_InventoryComponent_h_18_INCLASS_NO_PURE_DECLS \
-	FID_Unreal_Projects_Coven_Source_Coven_InventoryComponent_h_18_ENHANCED_CONSTRUCTORS \
+	FID_Unreal_Projects_Coven_Source_Coven_InventoryComponent_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Unreal_Projects_Coven_Source_Coven_InventoryComponent_h_17_INCLASS_NO_PURE_DECLS \
+	FID_Unreal_Projects_Coven_Source_Coven_InventoryComponent_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

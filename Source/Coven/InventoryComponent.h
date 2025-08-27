@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "InventoryItemData.h" 
 #include "InventoryComponent.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnItemAdded, AItemBase*, ItemToBeAdded); // Delegate for item added event
@@ -33,8 +32,6 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Inventory")
 	int MaxInventorySize; // Maximum number of items allowed in the inventory
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Inventory")
-	TArray<FInventoryItemData> SerializedInventoryItems; // Array to hold serialized inventory items
 
 	
 
