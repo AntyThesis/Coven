@@ -10,6 +10,8 @@ AEnemyBase::AEnemyBase()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	LiePower = 15.f; // Default lie power
+
 }
 
 // Called when the game starts or when spawned
@@ -34,7 +36,7 @@ void AEnemyBase::Lie()
 
 	for (ANPCBase* NPC : AssociatedNPCs) {
 		if (NPC) {
-			NPC->LoseApproval(10.f); // Decrease approval by 10
+			NPC->LoseApproval(LiePower); // Decrease approval by 15
 		}
 	}
 }

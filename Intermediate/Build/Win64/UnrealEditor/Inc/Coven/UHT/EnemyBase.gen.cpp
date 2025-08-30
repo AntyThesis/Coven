@@ -82,11 +82,16 @@ struct Z_Construct_UClass_AEnemyBase_Statics
 		{ "ToolTip", "Array to hold associated NPCs" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LiePower_MetaData[] = {
+		{ "Category", "Enemy Properties" },
+		{ "ModuleRelativePath", "EnemyBase.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_AssociatedNPCs_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_AssociatedNPCs;
 	static void NewProp_CanLie_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_CanLie;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_LiePower;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -105,10 +110,12 @@ void Z_Construct_UClass_AEnemyBase_Statics::NewProp_CanLie_SetBit(void* Obj)
 	((AEnemyBase*)Obj)->CanLie = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AEnemyBase_Statics::NewProp_CanLie = { "CanLie", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AEnemyBase), &Z_Construct_UClass_AEnemyBase_Statics::NewProp_CanLie_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CanLie_MetaData), NewProp_CanLie_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AEnemyBase_Statics::NewProp_LiePower = { "LiePower", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AEnemyBase, LiePower), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LiePower_MetaData), NewProp_LiePower_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AEnemyBase_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemyBase_Statics::NewProp_AssociatedNPCs_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemyBase_Statics::NewProp_AssociatedNPCs,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemyBase_Statics::NewProp_CanLie,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemyBase_Statics::NewProp_LiePower,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AEnemyBase_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AEnemyBase_Statics::DependentSingletons[])() = {
@@ -151,10 +158,10 @@ AEnemyBase::~AEnemyBase() {}
 struct Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_EnemyBase_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AEnemyBase, AEnemyBase::StaticClass, TEXT("AEnemyBase"), &Z_Registration_Info_UClass_AEnemyBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEnemyBase), 922634510U) },
+		{ Z_Construct_UClass_AEnemyBase, AEnemyBase::StaticClass, TEXT("AEnemyBase"), &Z_Registration_Info_UClass_AEnemyBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEnemyBase), 3386388272U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_EnemyBase_h_3639881211(TEXT("/Script/Coven"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_EnemyBase_h_4205826120(TEXT("/Script/Coven"),
 	Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_EnemyBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_Projects_Coven_Source_Coven_EnemyBase_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

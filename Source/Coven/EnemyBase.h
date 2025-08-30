@@ -23,6 +23,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy Properties")
 	bool CanLie = true;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy Properties")
+	float LiePower; // Amount of approval to reduce when lying
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
