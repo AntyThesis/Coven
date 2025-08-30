@@ -57,13 +57,16 @@
     <ClCompile Include="..\..\Source\Coven\CovenGameMode.h">
       <Filter>Source\Coven</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Coven\EnemyBase.cpp">
+      <Filter>Source\Coven</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Coven\EnemyBase.h">
+      <Filter>Source\Coven</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Coven\InventoryComponent.cpp">
       <Filter>Source\Coven</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Coven\InventoryComponent.h">
-      <Filter>Source\Coven</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Coven\InventoryItemData.h">
       <Filter>Source\Coven</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Coven\ItemBase.cpp">
@@ -88,12 +91,6 @@
       <Filter>Source\Coven</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Coven\RitualTea.h">
-      <Filter>Source\Coven</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Coven\SaveGameObject.cpp">
-      <Filter>Source\Coven</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Coven\SaveGameObject.h">
       <Filter>Source\Coven</Filter>
     </ClCompile>
   </ItemGroup>
