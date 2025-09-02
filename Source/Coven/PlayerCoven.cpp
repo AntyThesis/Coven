@@ -44,6 +44,7 @@ void APlayerCoven::IncreaseLevel(){
 	CovenLevel++; // Increase the level of the player's Coven
 	CurrentExp = 0.f; // Reset current exp after leveling up
 	ExpThreshold *= 1.2f; // Increase the threshold for the next level
+	PlayerCharacter->GainInfluencePoints(100); // Reward the player with influence points for leveling up
 }
 
 
