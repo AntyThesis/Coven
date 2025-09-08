@@ -5,6 +5,7 @@
 #include "InventoryComponent.h"
 #include "CovenCharacter.h"
 #include "Components/BoxComponent.h"
+#include "QuestManager.h"
 #include "Kismet/GameplayStatics.h"
 
 
@@ -17,6 +18,8 @@ AItemBase::AItemBase()
 	ItemName = "BaseItem"; // Initialize the item name to a default value
 
 	ItemMesh = CreateDefaultSubobject<UStaticMeshComponent>((TEXT("ItemMesh"))); // Create the static mesh component for the item
+
+	ItemType = EItemType::RegularItem; // Default item type
 	
 
 }
@@ -26,8 +29,7 @@ void AItemBase::BeginPlay()
 {
 	Super::BeginPlay();
 
-	
-	
+	QuestManager = Cast<AQuestManager>(UGameplayStatics::GetActorOfClass(GetWorld(), AQuestManager::StaticClass())); // Get a reference to the QuestManager in the world
 	
 }
 
@@ -43,14 +45,20 @@ void AItemBase::Interact(ACovenCharacter* InteractingCharacter) {
 	if (InteractingCharacter) {
 		ItemMesh->SetVisibility(false); // Hide the item mesh when interacted with
 		ItemMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision); // Disable collision for the item mesh
+		OnPickedUp.Broadcast(); // Broadcast the item picked up event
 	
 		UBoxComponent* CollisionBox = FindComponentByClass<UBoxComponent>(); // Find the collision box component
 		if (CollisionBox) {
 			CollisionBox->SetCollisionEnabled(ECollisionEnabled::NoCollision); // Disable collision for the collision box
 		}
 		
-
+		if (ItemType == EItemType::RegularItem || ItemType == EItemType::KeyItem){
 		InteractingCharacter->FindComponentByClass<UInventoryComponent>()->AddItemToInventory(this); // Add the item to the character's inventory
+		}
+
+		if (ItemType == EItemType::QuestItem){
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Picked up a %s! This item cannot be added to the inventory."), *ItemName)); // Notify the player that the item cannot be added to the inventory
+		}
 	}
 }
 

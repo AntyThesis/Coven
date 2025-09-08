@@ -15,12 +15,16 @@ class ACovenCharacter;
 #endif
 #define COVEN_ItemBase_generated_h
 
-#define FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_16_DELEGATE \
+COVEN_API void FOnPickedUp_DelegateWrapper(const FMulticastScriptDelegate& OnPickedUp);
+
+
+#define FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_27_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execUseItem); \
 	DECLARE_FUNCTION(execInteract);
 
 
-#define FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_17_INCLASS_NO_PURE_DECLS \
+#define FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_27_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAItemBase(); \
 	friend struct Z_Construct_UClass_AItemBase_Statics; \
@@ -29,7 +33,7 @@ public: \
 	DECLARE_SERIALIZER(AItemBase)
 
 
-#define FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_17_ENHANCED_CONSTRUCTORS \
+#define FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_27_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	AItemBase(AItemBase&&); \
@@ -41,13 +45,13 @@ public: \
 	NO_API virtual ~AItemBase();
 
 
-#define FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_14_PROLOG
-#define FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_17_GENERATED_BODY \
+#define FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_24_PROLOG
+#define FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_27_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_17_INCLASS_NO_PURE_DECLS \
-	FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_17_ENHANCED_CONSTRUCTORS \
+	FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_27_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_27_INCLASS_NO_PURE_DECLS \
+	FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h_27_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -57,5 +61,14 @@ template<> COVEN_API UClass* StaticClass<class AItemBase>();
 #undef CURRENT_FILE_ID
 #define CURRENT_FILE_ID FID_Unreal_Projects_Coven_Source_Coven_ItemBase_h
 
+
+#define FOREACH_ENUM_EITEMTYPE(op) \
+	op(EItemType::RegularItem) \
+	op(EItemType::QuestItem) \
+	op(EItemType::KeyItem) 
+
+enum class EItemType : uint8;
+template<> struct TIsUEnumClass<EItemType> { enum { Value = true }; };
+template<> COVEN_API UEnum* StaticEnum<EItemType>();
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

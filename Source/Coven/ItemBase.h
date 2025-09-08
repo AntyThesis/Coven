@@ -6,6 +6,16 @@
 #include "GameFramework/Actor.h"
 #include "ItemBase.generated.h"
 
+UENUM(BlueprintType)
+enum class EItemType : uint8 {
+	RegularItem UMETA(DisplayName = "Regular Item"),
+	QuestItem UMETA(DisplayName = "Quest Item"),
+	KeyItem UMETA(DisplayName = "Key Item")
+};
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPickedUp); // Delegate for item usage event
+
+class AQuestManager; // Forward declaration of the quest manager class
 class ACovenCharacter; // Forward declaration of the character class
 class UTexture2D;	// Forward declaration of the texture class
 class UStaticMeshComponent; // Forward declaration of the static mesh component class
@@ -20,7 +30,13 @@ public:
 	// Sets default values for this actor's properties
 	AItemBase();
 
+	AQuestManager* QuestManager;
 
+	UPROPERTY(BlueprintAssignable, Category = "Item Delegates")
+	FOnPickedUp OnPickedUp; // Event triggered when the item is picked up
+	
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Item Properties")
+	EItemType ItemType; // Type of the item
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item Properties")
 	UTexture2D* ItemIcon; // Icon for the item
